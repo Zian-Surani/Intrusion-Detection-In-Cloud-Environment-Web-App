@@ -37,7 +37,7 @@ The key components:
 │   └── main.js                 # UI logic
 ├── Result Analysis/            # Analysis of this system with existing analyzers
 │   ├── ANALYSIS.m              # MATLAB code
-│   ├── png files               # MATLAB output
+│   └──png files                # MATLAB output
 ├── tests/                      # Test suites (optional)
 ├── README.md                   # This file
 └── .gitignore                  # Ignore settings
