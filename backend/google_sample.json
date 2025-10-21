@@ -1,0 +1,26 @@
+{
+  "log": {
+    "entries": [
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://example.com/"
+        },
+        "response": {
+          "status": 200,
+          "bodySize": 12534
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://example.com/robots.txt"
+        },
+        "response": {
+          "status": 200,
+          "bodySize": 350
+        }
+      }
+    ]
+  }
+}

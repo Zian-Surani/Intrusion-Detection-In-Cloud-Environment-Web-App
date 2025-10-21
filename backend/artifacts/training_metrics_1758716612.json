@@ -1,0 +1,17 @@
+{
+  "timestamp": 1758716612,
+  "results": {
+    "mlp": {
+      "auc": 0.4779748650239787,
+      "path": "artifacts/mlp_pipeline_1758716612.joblib"
+    },
+    "rf": {
+      "auc": 0.49617169241847514,
+      "path": "artifacts/rf_pipeline_1758716612.joblib"
+    },
+    "xgboost": {
+      "auc": 0.4948450431485376,
+      "path": "artifacts/xgb_model_1758716612.joblib"
+    }
+  }
+}

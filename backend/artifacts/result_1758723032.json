@@ -1,0 +1,101 @@
+{
+  "timestamp": 1758723032,
+  "verdict": "ATTACK (DFA)",
+  "method_used": "DFA",
+  "justification": "DFA rule 'many_4xx' matched 2 lines.",
+  "ann_prob": null,
+  "dfa_detail": {
+    "name": "many_4xx",
+    "desc": "Multiple 4xx responses (client errors)",
+    "matches": [
+      5,
+      6
+    ]
+  },
+  "lines": [
+    {
+      "line": "GET http://example.com/ HTTP/1.1\" 200 Content-Length: 1250",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET http://example.com/about HTTP/1.1\" 200 Content-Length: 980",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET http://example.com/blog HTTP/1.1\" 200 Content-Length: 1120",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET http://example.com/blog/post-1 HTTP/1.1\" 200 Content-Length: 1400",
+      "base_score": 0.4,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.4
+    },
+    {
+      "line": "GET http://example.com/contact HTTP/1.1\" 200 Content-Length: 900",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET http://example.com/admin HTTP/1.1\" 403 Content-Length: 34",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET http://example.com/admin/login HTTP/1.1\" 401 Content-Length: 40",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET http://example.com/api/health HTTP/1.1\" 200 Content-Length: 18",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET http://example.com/api/data HTTP/1.1\" 200 Content-Length: 760",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET http://example.com/api/data?page=5 HTTP/1.1\" 200 Content-Length: 740",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    }
+  ],
+  "features": {
+    "duration": 1.0,
+    "protocol_type": "tcp",
+    "service": "http",
+    "flag": "SF",
+    "src_bytes": 0.0,
+    "dst_bytes": 724.2,
+    "count": 10,
+    "srv_count": 10,
+    "same_srv_rate": 0.5,
+    "dst_host_count": 5,
+    "dst_host_srv_count": 3
+  },
+  "plain_explanation": "Verdict: ATTACK (DFA)\nMethod used: DFA\nWhy: DFA rule 'many_4xx' matched 2 lines.\nTop suspicious lines (examples):\n- GET http://example.com/admin/login HTTP/1.1\" 401 Content-Length: 40\n- GET http://example.com/admin HTTP/1.1\" 403 Content-Length: 34\n- GET http://example.com/blog/post-1 HTTP/1.1\" 200 Content-Length: 1400\n- GET http://example.com/ HTTP/1.1\" 200 Content-Length: 1250\n- GET http://example.com/about HTTP/1.1\" 200 Content-Length: 980\nHow it works (brief):\n1) DFA checks: quick pattern matches to detect obvious issues (error codes, POST bursts).\n2) ANN check: a trained model inspects session-level features to estimate risk.\n3) The system scores lines and combines DFA + ANN results to identify and explain suspicious traffic."
+}

@@ -1,0 +1,107 @@
+{
+  "timestamp": 1758727578,
+  "verdict": "ATTACK (DFA)",
+  "method_used": "DFA",
+  "justification": "DFA matched rules: ['4xx', '5xx', 'POST', 'small_resp']",
+  "ann_prob": 0.9432240128517151,
+  "dfa_detail": {
+    "4xx": [
+      2,
+      3,
+      6
+    ],
+    "5xx": [
+      4
+    ],
+    "POST": [
+      2,
+      3,
+      6
+    ],
+    "small_resp": [
+      2,
+      3,
+      4,
+      6,
+      7
+    ]
+  },
+  "lines": [
+    {
+      "line": "GET /index.html HTTP/1.1\" 200 Content-Length: 1450",
+      "base_score": 0.85,
+      "dfa_flag": false,
+      "ann_flag": true,
+      "score": 0.85
+    },
+    {
+      "line": "GET /products.html HTTP/1.1\" 200 Content-Length: 980",
+      "base_score": 0.0,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.0
+    },
+    {
+      "line": "POST /login.php HTTP/1.1\" 403 Content-Length: 42",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": true,
+      "score": 0.9
+    },
+    {
+      "line": "POST /login.php HTTP/1.1\" 403 Content-Length: 41",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": true,
+      "score": 0.9
+    },
+    {
+      "line": "GET /admin HTTP/1.1\" 500 Content-Length: 28",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": true,
+      "score": 0.9
+    },
+    {
+      "line": "GET /images/logo.png HTTP/1.1\" 200 Content-Length: 2048",
+      "base_score": 0.0,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.0
+    },
+    {
+      "line": "POST /wp-login.php HTTP/1.1\" 401 Content-Length: 55",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": true,
+      "score": 0.9
+    },
+    {
+      "line": "GET /search?q=select+from+users HTTP/1.1\" 200 Content-Length: 64",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": true,
+      "score": 0.9
+    },
+    {
+      "line": "GET /api/data?page=1 HTTP/1.1\" 200 Content-Length: 850",
+      "base_score": 0.0,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /api/data?page=2 HTTP/1.1\" 200 Content-Length: 830",
+      "base_score": 0.0,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.0
+    }
+  ],
+  "features": {
+    "count": 10,
+    "avg_bytes": 638.8,
+    "num_posts": 3
+  },
+  "plain_explanation": "Verdict: ATTACK (DFA)\nMethod used: DFA\nWhy: DFA matched rules: ['4xx', '5xx', 'POST', 'small_resp']\nTop suspicious lines:\n- POST /login.php HTTP/1.1\" 403 Content-Length: 41\n- POST /login.php HTTP/1.1\" 403 Content-Length: 42\n- GET /search?q=select+from+users HTTP/1.1\" 200 Content-Length: 64\n- POST /wp-login.php HTTP/1.1\" 401 Content-Length: 55\n- GET /admin HTTP/1.1\" 500 Content-Length: 28\nHow it works: (1) DFA quick patterns, (2) ANN model if available, (3) merge results to highlight suspicious lines."
+}

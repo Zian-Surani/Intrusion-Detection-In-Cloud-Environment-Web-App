@@ -1,0 +1,250 @@
+{
+  "timestamp": 1758723810,
+  "verdict": "ATTACK (DFA match)",
+  "justification": "DFA matched keys: ['4xx', '5xx', 'POST', 'many_small']",
+  "ann_score": null,
+  "dfa": {
+    "4xx": [
+      8,
+      9,
+      10,
+      27,
+      28
+    ],
+    "5xx": [
+      11,
+      12
+    ],
+    "POST": [
+      7,
+      8,
+      9,
+      10,
+      27
+    ],
+    "many_small": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      15,
+      16,
+      24,
+      25,
+      26,
+      27,
+      28
+    ]
+  },
+  "lines": [
+    {
+      "line": "GET / HTTP/1.1\" 200 Content-Length: 1536",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /about HTTP/1.1\" 200 Content-Length: 1200",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /contact HTTP/1.1\" 200 Content-Length: 1100",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /products HTTP/1.1\" 200 Content-Length: 980",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /products?id=10 HTTP/1.1\" 200 Content-Length: 1024",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /assets/style.css HTTP/1.1\" 200 Content-Length: 2048",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /assets/app.js HTTP/1.1\" 200 Content-Length: 4096",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "POST /login HTTP/1.1\" 200 Content-Length: 150",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "POST /login HTTP/1.1\" 403 Content-Length: 45",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "POST /login HTTP/1.1\" 403 Content-Length: 42",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "POST /wp-login.php HTTP/1.1\" 401 Content-Length: 55",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /admin HTTP/1.1\" 500 Content-Length: 18",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /admin/settings HTTP/1.1\" 500 Content-Length: 12",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /download/report.pdf HTTP/1.1\" 200 Content-Length: 512000",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /api/user?id=123 HTTP/1.1\" 200 Content-Length: 700",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /search?q=1';-- HTTP/1.1\" 200 Content-Length: 40",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /search?q=%3Cscript%3Ealert(1)%3C/script%3E HTTP/1.1\" 200 Content-Length: 48",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /images/banner.jpg HTTP/1.1\" 200 Content-Length: 20480",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /api/data HTTP/1.1\" 200 Content-Length: 850",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /api/data?page=2 HTTP/1.1\" 200 Content-Length: 830",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /api/data?page=3 HTTP/1.1\" 200 Content-Length: 820",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /api/data?page=4 HTTP/1.1\" 200 Content-Length: 815",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /robots.txt HTTP/1.1\" 200 Content-Length: 120",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /sitemap.xml HTTP/1.1\" 200 Content-Length: 240",
+      "base": 0.0,
+      "dfa": false,
+      "ann_influenced": false,
+      "score": 0.0
+    },
+    {
+      "line": "GET /health HTTP/1.1\" 200 Content-Length: 12",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /metrics HTTP/1.1\" 200 Content-Length: 24",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /login?user=admin' OR '1'='1 HTTP/1.1\" 200 Content-Length: 36",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "POST /api/upload HTTP/1.1\" 413 Content-Length: 0",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /legacy?page=9999 HTTP/1.1\" 404 Content-Length: 32",
+      "base": 0.9,
+      "dfa": true,
+      "ann_influenced": false,
+      "score": 0.9
+    }
+  ],
+  "features": {
+    "count": 29,
+    "avg_bytes": 18943.206896551725,
+    "num_posts": 5
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "label_col_used": "dst_host_rerror_rate",
+  "mlp_auc": 0.9978618888923134,
+  "rf_auc": 0.9998183747001508
+}

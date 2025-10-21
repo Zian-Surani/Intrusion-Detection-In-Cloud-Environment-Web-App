@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sentinel X Design System - iOS Premium Style */
+
+@layer base {
+  :root {
+    /* Core iOS-style colors */
+    --background: 217 33% 97%;
+    --foreground: 222 84% 5%;
+
+    /* Glass morphism cards */
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    --glass: 0 0% 100% / 0.8;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+
+    /* Primary gradient: mint to blue */
+    --primary: 158 64% 52%;
+    --primary-to: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Accent violet */
+    --accent: 258 90% 66%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Secondary muted */
+    --secondary: 217 33% 97%;
+    --secondary-foreground: 215 25% 27%;
+
+    /* Muted text */
+    --muted: 217 33% 97%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 158 64% 52%;
+    --success-foreground: 0 0% 100%;
+    --warning: 43 89% 55%;
+    --warning-foreground: 222 84% 5%;
+
+    /* Interactive elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 158 64% 52%;
+
+    /* Design system tokens */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+
+    /* Shadows */
+    --shadow-soft: 0 6px 30px rgba(2, 6, 23, 0.08);
+    --shadow-glow: 0 0 40px rgba(110, 231, 183, 0.2);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 52%), hsl(213 94% 68%));
+    --gradient-accent: linear-gradient(135deg, hsl(258 90% 66%), hsl(280 90% 66%));
+    --gradient-background: radial-gradient(ellipse at top, hsl(217 33% 97%), hsl(220 20% 95%));
+
+    /* Glass effect */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.6);
+
+    /* iOS header */
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --header-blur: blur(8px);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - iOS style */
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 84% 8%;
+    --card-foreground: 210 40% 98%;
+    --glass: 0 0% 0% / 0.8;
+
+    --popover: 222 84% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 158 64% 52%;
+    --primary-to: 213 94% 68%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 258 90% 66%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 15%;
+    --input: 217 33% 15%;
+    --ring: 158 64% 52%;
+
+    --glass-bg: rgba(0, 0, 0, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --header-bg: rgba(0, 0, 0, 0.85);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    background: var(--gradient-background);
+    min-height: 100vh;
+  }
+
+  /* Glass morphism utilities */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .ios-header {
+    background: var(--header-bg);
+    backdrop-filter: var(--header-blur);
+    -webkit-backdrop-filter: var(--header-blur);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer components {
+  /* Button press animation */
+  .btn-press {
+    @apply transform transition-all duration-150 active:scale-95;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* iOS-style cards */
+  .ios-card {
+    @apply glass rounded-xl p-6 shadow-sm;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Animated background */
+  .animated-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-background);
+    z-index: -1;
+  }
+}

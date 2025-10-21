@@ -1,0 +1,87 @@
+{
+  "timestamp": 1758721975,
+  "verdict": "ATTACK (DFA)",
+  "method_used": "DFA",
+  "justification": "DFA rule 'many_4xx' matched 2 lines.",
+  "ann_prob": null,
+  "dfa_detail": {
+    "name": "many_4xx",
+    "desc": "Multiple 4xx responses (client errors)",
+    "matches": [
+      2,
+      5
+    ]
+  },
+  "lines": [
+    {
+      "line": "GET /index.html HTTP/1.1\" 200 Content-Length: 1200",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET /products.html HTTP/1.1\" 200 Content-Length: 980",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "POST /login.php HTTP/1.1\" 403 Content-Length: 45",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /admin HTTP/1.1\" 500 Content-Length: 30",
+      "base_score": 0.7999999999999999,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.7999999999999999
+    },
+    {
+      "line": "GET /images/logo.png HTTP/1.1\" 200 Content-Length: 2048",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "POST /wp-login.php HTTP/1.1\" 401 Content-Length: 55",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /api/data HTTP/1.1\" 200 Content-Length: 850",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET /search?q=select+from+users HTTP/1.1\" 200 Content-Length: 60",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    }
+  ],
+  "features": {
+    "duration": 0.8,
+    "protocol_type": "tcp",
+    "service": "http",
+    "flag": "SF",
+    "src_bytes": 0.0,
+    "dst_bytes": 658.5,
+    "count": 8,
+    "srv_count": 8,
+    "same_srv_rate": 0.5,
+    "dst_host_count": 4,
+    "dst_host_srv_count": 2
+  },
+  "plain_explanation": "Verdict: ATTACK (DFA)\nMethod used: DFA\nWhy: DFA rule 'many_4xx' matched 2 lines.\nTop suspicious lines (examples):\n- POST /login.php HTTP/1.1\" 403 Content-Length: 45\n- POST /wp-login.php HTTP/1.1\" 401 Content-Length: 55\n- GET /admin HTTP/1.1\" 500 Content-Length: 30\n- GET /products.html HTTP/1.1\" 200 Content-Length: 980\n- GET /index.html HTTP/1.1\" 200 Content-Length: 1200\nHow it works (brief):\n1) DFA checks: fast pattern matches to find obvious threats (error codes, POST bursts).\n2) ANN check: a trained model inspects session-level features to score traffic.\n3) Results combine per-line scores and model/DFA outputs to highlight suspicious entries."
+}

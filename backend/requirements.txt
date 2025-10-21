@@ -1,0 +1,15 @@
+streamlit
+scikit-learn
+pandas
+numpy
+joblib
+xgboost
+matplotlib
+requests
+beautifulsoup4
+google-generativeai
+shap
+openai
+fastapi
+uvicorn[standard]
+python-multipart

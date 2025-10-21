@@ -1,0 +1,65 @@
+{
+  "timestamp": 1758721160,
+  "verdict": "ATTACK (DFA)",
+  "method_used": "DFA",
+  "justification": "DFA rule 'many_4xx' matched 1 lines.",
+  "ann_prob": null,
+  "dfa_detail": {
+    "name": "many_4xx",
+    "desc": "Multiple 4xx responses (client errors)",
+    "matches": [
+      2
+    ]
+  },
+  "lines": [
+    {
+      "line": "GET /index.html HTTP/1.1\" 200 Content-Length: 1200",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "GET /contact.php HTTP/1.1\" 200 Content-Length: 950",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    },
+    {
+      "line": "POST /login.php HTTP/1.1\" 403 Content-Length: 50",
+      "base_score": 0.9,
+      "dfa_flag": true,
+      "ann_flag": false,
+      "score": 0.9
+    },
+    {
+      "line": "GET /admin HTTP/1.1\" 500 Content-Length: 20",
+      "base_score": 0.7999999999999999,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.7999999999999999
+    },
+    {
+      "line": "GET /api/data HTTP/1.1\" 200 Content-Length: 800",
+      "base_score": 0.1,
+      "dfa_flag": false,
+      "ann_flag": false,
+      "score": 0.1
+    }
+  ],
+  "features": {
+    "duration": 0.5,
+    "protocol_type": "tcp",
+    "service": "http",
+    "flag": "SF",
+    "src_bytes": 0.0,
+    "dst_bytes": 604.0,
+    "count": 5,
+    "srv_count": 5,
+    "same_srv_rate": 0.5,
+    "dst_host_count": 2,
+    "dst_host_srv_count": 1
+  },
+  "plain_explanation": "Verdict: ATTACK (DFA)\nMethod used: DFA\nWhy: DFA rule 'many_4xx' matched 1 lines.\nTop suspicious lines (examples):\n- POST /login.php HTTP/1.1\" 403 Content-Length: 50\n- GET /admin HTTP/1.1\" 500 Content-Length: 20\n- GET /index.html HTTP/1.1\" 200 Content-Length: 1200\n- GET /contact.php HTTP/1.1\" 200 Content-Length: 950\n- GET /api/data HTTP/1.1\" 200 Content-Length: 800\nHow it works (brief):\n1) DFA checks: fast regex-like signatures to find obvious patterns (errors, many POSTs, small responses).\n2) ANN check: when DFA doesn't match, a trained model (MLP/RF) predicts probability of attack using session features.\n3) Lines are scored heuristically and combined with model result to highlight suspicious requests."
+}
